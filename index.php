@@ -1,228 +1,79 @@
-<?php
-
-$siteName = "KursusKu";
-$tagline = "Belajar Teknologi, Bangun Masa Depan";
-$tahun = date("Y");
-
-?>
-
-<!DOCTYPE html>
+<?php $siteName = 'KursusKu UIN';
+$tagline = 'Belajar, daftar, dan kelola kursus dalam satu tempat.';
+$year = date('Y'); ?>
+<!doctype html>
 <html lang="id">
 
+<link rel="stylesheet" href="assets/css/style.css">
+
 <head>
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0">
-
-  <title><?php echo $siteName; ?></title>
-
-  <link
-    rel="stylesheet"
-    href="assets/css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><?= htmlspecialchars($siteName) ?></title>
 </head>
 
-<body>
-  <header class="header">
-
-    <div class="container">
-
-      <h1>
-        <?php echo $siteName; ?>
-      </h1>
-
-      <p>
-        <?php echo $tagline; ?>
-      </p>
-
-    </div>
-
+<body> 
+  <header>
+    <nav aria-label="Navigasi utama"> <a href="index.php"> <strong><?= htmlspecialchars($siteName) ?></strong> </a> <a href="#keunggulan">Keunggulan</a> <a href="#katalog">Katalog</a> <a href="#alur">Cara Daftar</a> <a href="#kontak">Kontak</a> </nav>
   </header>
-
-  <nav class="navbar">
-
-    <div class="container">
-
-      <a href="#beranda">Beranda</a>
-
-      <a href="#kursus">Kursus</a>
-
-      <a href="#tentang">Tentang</a>
-
-      <a href="#kontak">Kontak</a>
-
-    </div>
-
-  </nav>
-
   <main>
-    <section id="beranda" class="hero">
-
-      <div class="container">
-
-        <div class="hero-content">
-
-          <div>
-
-            <h2>
-              Selamat Datang di
-              <?php echo $siteName; ?>
-            </h2>
-
-            <p>
-              Platform belajar teknologi untuk
-              mahasiswa yang ingin meningkatkan
-              kemampuan pemrograman web.
-            </p>
-
-            <a
-              href="#kursus"
-              class="button">
-              Lihat Kursus
-            </a>
-
-          </div>
-
-          <div>
-
-            <img
-              src="assets/img/image1.png"
-              alt="Mahasiswa sedang belajar pemrograman web"
-              class="hero-image">
-
-          </div>
-
-        </div>
-
-      </div>
-
+    <section id="hero">
+      <h1><?= htmlspecialchars($tagline) ?></h1>
+      <p> Temukan kursus teknologi yang relevan untuk meningkatkan keterampilan Anda. </p> <a href="#katalog"> Lihat Katalog Kursus </a>
     </section>
-    <section id="kursus" class="section">
-
-      <div class="container">
-
-        <h2>Program Kursus</h2>
-
-        <div class="course-grid">
-
-          <article class="course-card">
-
-            <h3>HTML & CSS</h3>
-
-            <p>
-              Belajar membangun struktur dan
-              tampilan website dari dasar.
-            </p>
-
-          </article>
-
-
-          <article class="course-card">
-
-            <h3>PHP</h3>
-
-            <p>
-              Belajar pemrograman web
-              server-side menggunakan PHP.
-            </p>
-
-          </article>
-
-
-          <article class="course-card">
-
-            <h3>Laravel</h3>
-
-            <p>
-              Membangun aplikasi web modern
-              menggunakan framework Laravel.
-            </p>
-
-          </article>
-
-        </div>
-
-      </div>
-
+    <section id="keunggulan">
+      <h2>Mengapa Memilih KursusKu?</h2>
+      <article>
+        <h3>Materi Terarah</h3>
+        <p> Materi disusun bertahap dari dasar hingga praktik. </p>
+      </article>
+      <article>
+        <h3>Belajar dengan Proyek</h3>
+        <p> Setiap tahap menghasilkan bagian nyata dari aplikasi. </p>
+      </article>
+      <article>
+        <h3>Pendampingan Praktik</h3>
+        <p> Mahasiswa belajar melalui demonstrasi, latihan, dan evaluasi. </p>
+      </article>
+    </section> 
+    <section id="katalog">
+      <h2>Katalog Kursus</h2>
+      <article>
+        <h3>Web Dasar</h3>
+        <p> Belajar struktur HTML dan dasar pengembangan web. </p>
+      </article>
+      <article>
+        <h3>PHP Dasar</h3>
+        <p> Belajar variabel, operator, percabangan, looping, dan form. </p>
+      </article>
+      <article>
+        <h3>Laravel Dasar</h3>
+        <p> Mengenal framework, route, controller, view, dan database. </p>
+      </article>
+    </section> 
+    <section id="alur">
+      <h2>Cara Mendaftar</h2>
+      <ol>
+        <li>Pilih kursus yang diminati.</li>
+        <li>Isi form pendaftaran.</li>
+        <li>Periksa kembali data.</li>
+        <li> Kirim pendaftaran dan tunggu konfirmasi. </li>
+      </ol>
     </section>
-    <section id="tentang" class="section section-light">
-
-      <div class="container">
-
-        <h2>Tentang KursusKu</h2>
-
-        <p>
-          KursusKu merupakan prototype website
-          pembelajaran yang dikembangkan dalam
-          mata kuliah Pemrograman Web III.
-        </p>
-
-        <p>
-          Pada semester ini mahasiswa akan belajar
-          PHP, MySQL dan framework Laravel.
-        </p>
-
-        <a
-          href="https://laravel.com"
-          target="_blank"
-          rel="noopener">
-          Pelajari Laravel
-        </a>
-
-      </div>
-
+    <section id="media">
+      <h2>Kenali Program Kami</h2> <img src="assets/images/hero-kursus.jpg" alt="Mahasiswa sedang mengikuti kegiatan kursus komputer" width="640">
+      <h3>Video Singkat</h3> <video controls width="640">
+        <source src="assets/video/intro-kursus.mp4" type="video/mp4"> Browser Anda tidak mendukung video HTML5.
+      </video>
+      <p> <a href="https://www.php.net/" target="_blank" rel="noopener"> Dokumentasi PHP </a> </p>
     </section>
-    <section class="section">
-
-      <div class="container">
-
-        <h2>Video Pembelajaran</h2>
-
-        <div class="video-placeholder">
-
-          <iframe width="342" height="607" src="https://www.youtube.com/embed/nQinn48Bk2g" title="Kenapa Laravel Masih Banyak Yang Pake" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-
-
-      </div>
-
-    </section>
-    <section id="kontak" class="section section-light">
-
-      <div class="container">
-
-        <h2>Kontak</h2>
-
-        <p>
-          Informasi lebih lanjut mengenai
-          program KursusKu dapat diperoleh
-          melalui halaman ini.
-        </p>
-
-      </div>
-
+    <section id="kontak">
+      <h2>Kontak</h2>
+      <p> Email: Seindevstudio@gmail.com </p>
+      <p> Alamat: UIN Sjech M Djamil Djambek </p>
     </section>
   </main>
-
-  <footer class="footer">
-
-    <div class="container">
-
-      <p>
-
-        &copy;
-        <?php echo $tahun; ?>
-
-        <?php echo $siteName; ?>.
-
-        Pemrograman Web III.
-
-      </p>
-
-    </div>
-
-  </footer>
+  <footer> <small> &copy; <?= $year ?> <?= htmlspecialchars($siteName) ?> </small> </footer>
 </body>
 
 </html>
