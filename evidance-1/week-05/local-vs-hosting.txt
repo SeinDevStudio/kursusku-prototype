@@ -1,7 +1,7 @@
 LOCAL VS HOSTING - PERTEMUAN 5
 Proyek: KursusKu Prototype
-Nama Mahasiswa: __________________________
-Tanggal: __________________________
+Nama Mahasiswa: Muhammad Husein Al Hafidz
+Tanggal: 24 september 2026
 
 Isi kolom "Kondisi Proyek Saya" dengan kondisi nyata prototype Anda saat ini,
 dan "Penjelasan Singkat" dengan pemahaman Anda sendiri (bukan disalin dari panduan).

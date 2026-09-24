@@ -1,7 +1,7 @@
 TEST MATRIX - PERTEMUAN 5
 Proyek: KursusKu Prototype
-Nama Mahasiswa: __________________________
-Tanggal Pengujian: __________________________
+Nama Mahasiswa: Muhammad Husein Al Hafidz
+Tanggal Pengujian: 24 september 2026
 
 Isi kolom "Status" dengan Lulus / Perlu Perbaikan, dan "Catatan" dengan satu kalimat hasil pengamatan.
 
