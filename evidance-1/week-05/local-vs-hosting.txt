@@ -1,0 +1,28 @@
+LOCAL VS HOSTING - PERTEMUAN 5
+Proyek: KursusKu Prototype
+Nama Mahasiswa: __________________________
+Tanggal: __________________________
+
+Isi kolom "Kondisi Proyek Saya" dengan kondisi nyata prototype Anda saat ini,
+dan "Penjelasan Singkat" dengan pemahaman Anda sendiri (bukan disalin dari panduan).
+
+Aspek        | Local Development (Kondisi Proyek Saya)              | Hosting / Production (Yang Seharusnya)            | Penjelasan Singkat
+URL          | kursusku-prototype.test / localhost                  | Domain/subdomain publik                           |
+Lokasi file  | Laptop mahasiswa                                     | Server hosting                                    |
+Database     | MySQL lokal Laragon (jika digunakan)                 | Database server hosting                           |
+Environment  | Development                                          | Production                                        |
+HTTPS/SSL    | Tidak selalu tersedia                                | Seharusnya HTTPS aktif                            |
+Debug        | Boleh membantu proses belajar                        | Jangan menampilkan detail error sensitif          |
+Secret       | Disimpan lokal, tidak dibagikan                      | Disimpan aman sebagai konfigurasi server           |
+Document root| Folder proyek di Laragon                             | Folder web yang ditentukan provider hosting        |
+
+Refleksi singkat (jawab dengan kata-kata sendiri):
+1. Apa risiko jika prototype ini langsung diunggah ke hosting publik tanpa HTTPS?
+   __________________________________________________________________
+
+2. Bagian mana dari kode Anda (jika ada) yang masih menulis path lokal atau
+   informasi yang tidak boleh dibagikan ke publik?
+   __________________________________________________________________
+
+3. Apa perbedaan utama cara menangani error di local vs production menurut Anda?
+   __________________________________________________________________

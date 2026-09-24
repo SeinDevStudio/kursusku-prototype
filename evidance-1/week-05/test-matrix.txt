@@ -1,0 +1,25 @@
+TEST MATRIX - PERTEMUAN 5
+Proyek: KursusKu Prototype
+Nama Mahasiswa: __________________________
+Tanggal Pengujian: __________________________
+
+Isi kolom "Status" dengan Lulus / Perlu Perbaikan, dan "Catatan" dengan satu kalimat hasil pengamatan.
+
+No. | Test           | Langkah                                        | Hasil yang Diharapkan                          | Status | Catatan
+1   | Load form      | Buka registration.php                          | Form tampil tanpa error                        |        |
+2   | Required       | Kirim form kosong                              | Browser menahan field wajib                    |        |
+3   | Email          | Isi email "abc"                                | Browser meminta format email                   |        |
+4   | Nama pendek    | Isi nama dua karakter                          | minlength mencegah submit                      |        |
+5   | GET            | Ubah method ke GET lalu submit data latihan    | Parameter terlihat di URL                      |        |
+6   | POST           | Kembalikan ke POST dan submit                  | Query data tidak tampil pada URL               |        |
+7   | Radio          | Pilih Mahasiswa/Umum                           | Nilai muncul di ringkasan                      |        |
+8   | Checkbox       | Pilih dua minat                                | Dua nilai muncul setelah digabung              |        |
+9   | Textarea       | Isi catatan singkat                            | Isi ditampilkan kembali dengan aman            |        |
+10  | Hidden         | Submit form                                    | Sumber "week-05" diterima                      |        |
+11  | Mobile         | Uji sekitar 360 px                             | Form satu kolom, tidak overflow                |        |
+12  | Navigasi       | Beranda -> Katalog -> Daftar                   | Semua link menuju tujuan benar                 |        |
+
+Ringkasan:
+- Jumlah Lulus: __
+- Jumlah Perlu Perbaikan: __
+- Catatan umum: __________________________

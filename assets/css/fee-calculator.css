@@ -1,116 +1,501 @@
+/* =========================================================
+   RESET & VARIABLES
+========================================================= */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f5f7fb;
-  color: #1f2937;
+:root {
+  --bg: #070b14;
+  --bg-soft: #0d1320;
+  --card: rgba(15, 23, 42, 0.82);
+  --card-hover: rgba(20, 30, 52, 0.9);
+
+  --primary: #6366f1;
+  --primary-light: #818cf8;
+  --secondary: #06b6d4;
+  --accent: #8b5cf6;
+
+  --text: #f8fafc;
+  --text-soft: #cbd5e1;
+  --text-muted: #94a3b8;
+
+  --border: rgba(148, 163, 184, 0.15);
+
+  --success: #22c55e;
+  --danger: #ef4444;
+
+  --radius: 18px;
+
+  --shadow:
+    0 20px 60px rgba(0, 0, 0, 0.35);
 }
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(99, 102, 241, 0.13),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 20%,
+      rgba(6, 182, 212, 0.08),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(139, 92, 246, 0.08),
+      transparent 35%
+    ),
+    var(--bg);
+
+  color: var(--text);
+
+  min-height: 100vh;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030712;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--primary),
+    var(--secondary)
+  );
+
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-light);
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
 
 .calculator-container {
+  position: relative;
+
   min-height: 100vh;
-  padding: 50px 20px;
+
+  padding: 70px 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
+
+
+/* Background glow */
+
+.calculator-container::before {
+  content: "";
+
+  position: fixed;
+
+  width: 350px;
+  height: 350px;
+
+  top: -150px;
+  left: -150px;
+
+  background: var(--primary);
+
+  border-radius: 50%;
+
+  filter: blur(120px);
+
+  opacity: 0.12;
+
+  pointer-events: none;
+
+  animation: floatingGlow 8s ease-in-out infinite;
+}
+
+.calculator-container::after {
+  content: "";
+
+  position: fixed;
+
+  width: 300px;
+  height: 300px;
+
+  right: -120px;
+  bottom: -120px;
+
+  background: var(--secondary);
+
+  border-radius: 50%;
+
+  filter: blur(120px);
+
+  opacity: 0.08;
+
+  pointer-events: none;
+
+  animation: floatingGlow 10s ease-in-out infinite reverse;
+}
+
+
+/* =========================================================
+   CALCULATOR CARD
+========================================================= */
 
 .calculator-card {
-  max-width: 800px;
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 850px;
+
   margin: auto;
-  background: white;
-  padding: 35px;
-  border-radius: 18px;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+
+  padding: 40px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(30, 41, 59, 0.82),
+      rgba(15, 23, 42, 0.86)
+    );
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius);
+
+  box-shadow: var(--shadow);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  animation: fadeUp 0.7s ease both;
 }
 
+
+/* Subtle top highlight */
+
+.calculator-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 8%;
+
+  width: 84%;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(129, 140, 248, 0.7),
+    transparent
+  );
+}
+
+
+/* =========================================================
+   BACK LINK
+========================================================= */
+
 .back-link {
-  display: inline-block;
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
   margin-bottom: 30px;
-  color: #2563eb;
+
+  color: var(--primary-light);
+
   text-decoration: none;
-  font-weight: bold;
+
+  font-weight: 600;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.back-link::before {
+  content: "←";
+
+  font-size: 18px;
+
+  transition: transform 0.3s ease;
 }
 
 .back-link:hover {
-  text-decoration: underline;
+  color: #67e8f9;
+
+  transform: translateX(3px);
 }
 
+.back-link:hover::before {
+  transform: translateX(-4px);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
 .header {
-  margin-bottom: 30px;
+  margin-bottom: 32px;
+
+  animation: fadeUp 0.7s ease 0.1s both;
 }
 
 .badge {
-  display: inline-block;
-  background: #dbeafe;
-  color: #2563eb;
+  display: inline-flex;
+
+  align-items: center;
+
   padding: 7px 14px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: bold;
-  margin-bottom: 15px;
+
+  margin-bottom: 16px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(99, 102, 241, 0.12);
+
+  border:
+    1px solid rgba(99, 102, 241, 0.25);
+
+  color: #a5b4fc;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.3px;
+
+  box-shadow:
+    0 0 20px rgba(99, 102, 241, 0.08);
 }
 
 .header h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
-  color: #111827;
+  font-size: clamp(30px, 5vw, 42px);
+
+  line-height: 1.15;
+
+  margin-bottom: 12px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ffffff,
+      #a5b4fc,
+      #67e8f9
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
 }
 
 .header p {
-  color: #6b7280;
+  color: var(--text-muted);
+
+  font-size: 15px;
+
+  line-height: 1.7;
 }
 
-/* INFORMASI KURSUS */
+
+/* =========================================================
+   COURSE INFO
+========================================================= */
 
 .course-info {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
 
-  background: #f8fafc;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 15px;
+
+  background:
+    rgba(15, 23, 42, 0.75);
+
   padding: 20px;
-  border-radius: 12px;
+
+  border-radius: 14px;
+
+  border:
+    1px solid var(--border);
 
   margin-bottom: 30px;
+
+  animation: fadeUp 0.7s ease 0.2s both;
 }
 
 .course-info div {
+  position: relative;
+
   display: flex;
+
   flex-direction: column;
+
   gap: 5px;
+
+  padding: 5px;
 }
 
 .label {
-  font-size: 13px;
-  color: #6b7280;
+  font-size: 12px;
+
+  color: var(--text-muted);
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.5px;
+}
+
+.course-info div > span:not(.label) {
+  color: var(--text-soft);
+
+  font-weight: 600;
 }
 
 .status {
-  color: #16a34a;
+  color: #4ade80 !important;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 6px;
 }
 
-/* TABLE */
+.status::before {
+  content: "";
+
+  width: 8px;
+  height: 8px;
+
+  background: var(--success);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 10px rgba(34, 197, 94, 0.8);
+
+  animation: pulse 2s infinite;
+}
+
+
+/* =========================================================
+   TABLE WRAPPER
+========================================================= */
 
 .table-wrapper {
+  width: 100%;
+
   overflow-x: auto;
+
+  border-radius: 14px;
+
+  border: 1px solid var(--border);
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.18);
+
+  scrollbar-width: thin;
+  scrollbar-color:
+    var(--primary)
+    #0f172a;
+
+  animation: fadeUp 0.7s ease 0.3s both;
 }
+
+
+/* =========================================================
+   TABLE
+========================================================= */
 
 table {
   width: 100%;
-  border-collapse: collapse;
+
+  border-collapse: separate;
+
+  border-spacing: 0;
+
+  background:
+    rgba(15, 23, 42, 0.65);
 }
 
 thead {
-  background: #2563eb;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(99, 102, 241, 0.95),
+      rgba(79, 70, 229, 0.95)
+    );
+
   color: white;
 }
 
 th,
 td {
-  padding: 16px;
+  padding: 16px 18px;
+
   text-align: left;
-  border-bottom: 1px solid #e5e7eb;
+
+  border-bottom:
+    1px solid rgba(148, 163, 184, 0.1);
+
+  white-space: nowrap;
+}
+
+th {
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.3px;
+}
+
+td {
+  color: var(--text-muted);
+
+  font-size: 14px;
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease;
 }
 
 th:last-child,
@@ -118,98 +503,206 @@ td:last-child {
   text-align: right;
 }
 
-tbody tr:hover {
-  background: #f8fafc;
+tbody tr {
+  transition:
+    background 0.25s ease;
 }
+
+tbody tr:hover {
+  background:
+    rgba(99, 102, 241, 0.08);
+}
+
+tbody tr:hover td {
+  color: var(--text-soft);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   DISCOUNT
+========================================================= */
 
 .discount {
-  color: #dc2626;
+  color: #f87171 !important;
+
+  font-weight: 700;
+
+  text-shadow:
+    0 0 15px rgba(239, 68, 68, 0.15);
 }
 
-/* TOTAL */
+
+/* =========================================================
+   TOTAL
+========================================================= */
 
 .total-row {
-  background: #eff6ff;
-  font-weight: bold;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(99, 102, 241, 0.13),
+      rgba(6, 182, 212, 0.06)
+    );
+
+  font-weight: 700;
+
   font-size: 18px;
 }
 
 .total-row td {
+  color: #e0e7ff;
+
   border-bottom: none;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
-/* FORMULA */
+.total-row td:last-child {
+  color: #a5b4fc;
+
+  font-size: 20px;
+
+  text-shadow:
+    0 0 20px rgba(129, 140, 248, 0.25);
+}
+
+
+/* =========================================================
+   FORMULA
+========================================================= */
 
 .formula {
+  position: relative;
+
   margin-top: 30px;
+
   padding: 25px;
 
-  background: #f8fafc;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(30, 41, 59, 0.75),
+      rgba(15, 23, 42, 0.75)
+    );
 
-  border-left: 5px solid #2563eb;
+  border:
+    1px solid var(--border);
 
-  border-radius: 10px;
+  border-left:
+    4px solid var(--primary);
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  animation: fadeUp 0.7s ease 0.4s both;
+}
+
+.formula::after {
+  content: "";
+
+  position: absolute;
+
+  width: 150px;
+  height: 150px;
+
+  right: -80px;
+  top: -80px;
+
+  background: var(--primary);
+
+  border-radius: 50%;
+
+  filter: blur(70px);
+
+  opacity: 0.12;
 }
 
 .formula h2 {
+  position: relative;
+
+  z-index: 1;
+
   font-size: 20px;
+
   margin-bottom: 15px;
+
+  color: #e0e7ff;
 }
 
 .formula p {
-  margin: 8px 0;
-  color: #4b5563;
+  position: relative;
+
+  z-index: 1;
+
+  margin: 9px 0;
+
+  color: var(--text-muted);
+
+  line-height: 1.7;
 }
 
-/* FOOTER NOTE */
-
-.footer-note {
-  margin-top: 25px;
-  text-align: center;
-  color: #9ca3af;
-  font-size: 13px;
+.formula strong {
+  color: var(--text-soft);
 }
 
-/* RESPONSIVE */
 
-@media (max-width: 600px) {
-  .calculator-container {
-    padding: 25px 15px;
-  }
+/* =========================================================
+   TEST MATRIX
+========================================================= */
 
-  .calculator-card {
-    padding: 25px 18px;
-  }
-
-  .header h1 {
-    font-size: 28px;
-  }
-
-  .course-info {
-    grid-template-columns: 1fr;
-  }
-
-  th,
-  td {
-    padding: 12px 8px;
-    font-size: 14px;
-  }
-
-  .total-row {
-    font-size: 16px;
-  }
-}
 .test-matrix {
-  margin-top: 30px;
+  margin-top: 35px;
+
+  animation: fadeUp 0.7s ease 0.5s both;
 }
 
 .test-matrix h2 {
+  position: relative;
+
   margin-bottom: 8px;
+
+  color: #e0e7ff;
+
+  font-size: 22px;
+}
+
+.test-matrix h2::before {
+  content: "";
+
+  display: inline-block;
+
+  width: 4px;
+  height: 22px;
+
+  margin-right: 10px;
+
+  vertical-align: -3px;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--primary),
+      var(--secondary)
+    );
+
+  box-shadow:
+    0 0 12px rgba(99, 102, 241, 0.5);
 }
 
 .test-matrix p {
-  color: #64748b;
+  color: var(--text-muted);
+
   margin-bottom: 20px;
+
+  line-height: 1.7;
 }
 
 .test-matrix .table-wrapper {
@@ -220,7 +713,305 @@ tbody tr:hover {
   min-width: 850px;
 }
 
+.test-matrix th {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(30, 41, 59, 0.95),
+      rgba(51, 65, 85, 0.95)
+    );
+}
+
 .test-matrix .pass {
   font-weight: 700;
-  color: #15803d;
+
+  color: #4ade80;
+
+  text-shadow:
+    0 0 12px rgba(34, 197, 94, 0.2);
+}
+
+
+/* =========================================================
+   FOOTER NOTE
+========================================================= */
+
+.footer-note {
+  margin-top: 28px;
+
+  text-align: center;
+
+  color: #64748b;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+.footer-note::before {
+  content: "✦";
+
+  color: var(--primary-light);
+
+  margin-right: 6px;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+@keyframes floatingGlow {
+  0%,
+  100% {
+    transform:
+      translate(0, 0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate(30px, 30px)
+      scale(1.1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.9);
+
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.15);
+
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.9);
+
+    opacity: 0.7;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 768px) {
+  .calculator-container {
+    padding: 45px 16px;
+  }
+
+  .calculator-card {
+    padding: 30px 24px;
+  }
+
+  .header h1 {
+    font-size: 32px;
+  }
+
+  .course-info {
+    gap: 12px;
+  }
+
+  th,
+  td {
+    padding: 14px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .calculator-container {
+    padding: 25px 12px;
+  }
+
+  .calculator-card {
+    padding: 25px 17px;
+
+    border-radius: 15px;
+  }
+
+  .back-link {
+    margin-bottom: 25px;
+
+    font-size: 14px;
+  }
+
+  .header {
+    margin-bottom: 25px;
+  }
+
+  .badge {
+    font-size: 11px;
+
+    padding: 6px 11px;
+  }
+
+  .header h1 {
+    font-size: 28px;
+
+    line-height: 1.2;
+  }
+
+  .header p {
+    font-size: 14px;
+  }
+
+  .course-info {
+    grid-template-columns: 1fr;
+
+    padding: 17px;
+
+    margin-bottom: 25px;
+  }
+
+  .course-info div {
+    padding: 3px;
+  }
+
+  .table-wrapper {
+    border-radius: 11px;
+  }
+
+  table {
+    min-width: 620px;
+  }
+
+  th,
+  td {
+    padding: 12px 10px;
+
+    font-size: 13px;
+  }
+
+  .total-row {
+    font-size: 16px;
+  }
+
+  .total-row td:last-child {
+    font-size: 17px;
+  }
+
+  .formula {
+    padding: 20px;
+
+    margin-top: 25px;
+  }
+
+  .formula h2 {
+    font-size: 18px;
+  }
+
+  .formula p {
+    font-size: 14px;
+  }
+
+  .test-matrix {
+    margin-top: 28px;
+  }
+
+  .test-matrix h2 {
+    font-size: 19px;
+  }
+
+  .test-matrix p {
+    font-size: 14px;
+  }
+
+  .test-matrix table {
+    min-width: 850px;
+  }
+
+  .footer-note {
+    font-size: 12px;
+
+    margin-top: 22px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+  .calculator-container {
+    padding:
+      20px
+      10px;
+  }
+
+  .calculator-card {
+    padding: 22px 14px;
+  }
+
+  .header h1 {
+    font-size: 25px;
+  }
+
+  .header p {
+    font-size: 13px;
+  }
+
+  .course-info {
+    padding: 14px;
+  }
+
+  th,
+  td {
+    padding: 11px 9px;
+
+    font-size: 12px;
+  }
+
+  .formula {
+    padding: 17px;
+  }
+
+  .formula p {
+    font-size: 13px;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+  }
 }
