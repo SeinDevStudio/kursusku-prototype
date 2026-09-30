@@ -3,26 +3,27 @@ Proyek: KursusKu Prototype
 Nama Mahasiswa: Muhammad Husein Al Hafidz
 Tanggal: 24 september 2026
 
-Isi kolom "Kondisi Proyek Saya" dengan kondisi nyata prototype Anda saat ini,
-dan "Penjelasan Singkat" dengan pemahaman Anda sendiri (bukan disalin dari panduan).
-
 Aspek        | Local Development (Kondisi Proyek Saya)              | Hosting / Production (Yang Seharusnya)            | Penjelasan Singkat
-URL          | kursusku-prototype.test / localhost                  | Domain/subdomain publik                           |
-Lokasi file  | Laptop mahasiswa                                     | Server hosting                                    |
-Database     | MySQL lokal Laragon (jika digunakan)                 | Database server hosting                           |
-Environment  | Development                                          | Production                                        |
-HTTPS/SSL    | Tidak selalu tersedia                                | Seharusnya HTTPS aktif                            |
-Debug        | Boleh membantu proses belajar                        | Jangan menampilkan detail error sensitif          |
-Secret       | Disimpan lokal, tidak dibagikan                      | Disimpan aman sebagai konfigurasi server           |
-Document root| Folder proyek di Laragon                             | Folder web yang ditentukan provider hosting        |
+URL          | kursusku-prototype.test                              | Domain/subdomain publik                           |Alamat akses web yang digunakan untuk membuka aplikasi.  
+Lokasi file  | D:\laragon\www\kursusku-prototype                    | Server hosting                                    |Tempat penyimpanan fisik seluruh kode program aplikasi di dalam komputer.  
+Database     | MySQL lokal Laragon                                  | Database server hosting                           |Tempat penyimpanan data aplikasi yang berjalan secara lokal di perangkat sendiri.  
+Environment  | Development                                          | Production                                        |Status atau tahap siklus pengembangan aplikasi, apakah sedang dibuat atau sudah dirilis.  
+HTTPS/SSL    | Tidak selalu tersedia                                | Seharusnya HTTPS aktif                            |Protokol keamanan untuk mengenkripsi pertukaran data antara browser dan server. 
+Debug        | Boleh membantu proses belajar                        | Jangan menampilkan detail error sensitif          |Fitur untuk menampilkan laporan detail error guna membantu proses pencarian bug.  
+Secret       | Disimpan lokal, tidak dibagikan                      | Disimpan aman sebagai konfigurasi server          |Informasi rahasia seperti kunci enkripsi atau password database yang harus diamankan. 
+Document root| Folder proyek di Laragon                             | Folder web yang ditentukan provider hosting       |Folder utama yang diakses pertama kali oleh web server saat membuka aplikasi.
 
 Refleksi singkat (jawab dengan kata-kata sendiri):
 1. Apa risiko jika prototype ini langsung diunggah ke hosting publik tanpa HTTPS?
-   __________________________________________________________________
+   Data yang dikirimkan pengguna (seperti form login, data diri, atau kata sandi) tidak akan terenkripsi 
+   sehingga sangat rentan disadap oleh pihak lain di jaringan yang sama (man-in-the-middle attack).
+   Selain itu, browser modern biasanya akan memberi peringatan "Not Secure" yang membuat pengguna tidak percaya pada situs web kita.
 
 2. Bagian mana dari kode Anda (jika ada) yang masih menulis path lokal atau
    informasi yang tidak boleh dibagikan ke publik?
-   __________________________________________________________________
+   Biasanya terdapat pada pengaturan koneksi database di file .env atau konfigurasi dasar aplikasi yang masih menggunakan localhost 
+   atau path direktori absolut milik Windows. Informasi sensitif seperti kredensial database lokal juga harus dipastikan tidak ikut terunggah ke repository publik.  
 
 3. Apa perbedaan utama cara menangani error di local vs production menurut Anda?
-   __________________________________________________________________
+   Saat di local, detail error lengkap beserta stack trace sangat diperlukan agar kita bisa cepat memperbaiki bug saat ngoding. Sebaliknya, saat di production, 
+   detail error tersebut harus disembunyikan dari pengguna umum demi keamanan agar celah sistem tidak mudah dibaca oleh penyerang, dan diganti dengan halaman error yang ramah pengguna.

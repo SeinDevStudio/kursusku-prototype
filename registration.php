@@ -86,7 +86,11 @@
         <small class="help">Maksimal 300 karakter.</small>
       </div>
 
-      <button class="btn-primary" type="submit">Kirim Pendaftaran</button>
+      <!-- Tombol Aksi POST dan Tombol Eksperimen GET -->
+      <div class="button-group">
+        <button class="btn-primary" type="submit">Kirim Pendaftaran (POST)</button>
+        <button class="btn-secondary" type="submit" formmethod="GET" formaction="process-registration.php">Eksperimen GET</button>
+      </div>
     </form>
   </section>
 </main>

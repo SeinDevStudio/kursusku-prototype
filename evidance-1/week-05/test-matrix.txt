@@ -5,21 +5,21 @@ Tanggal Pengujian: 24 september 2026
 
 Isi kolom "Status" dengan Lulus / Perlu Perbaikan, dan "Catatan" dengan satu kalimat hasil pengamatan.
 
-No. | Test           | Langkah                                        | Hasil yang Diharapkan                          | Status | Catatan
-1   | Load form      | Buka registration.php                          | Form tampil tanpa error                        |        |
-2   | Required       | Kirim form kosong                              | Browser menahan field wajib                    |        |
-3   | Email          | Isi email "abc"                                | Browser meminta format email                   |        |
-4   | Nama pendek    | Isi nama dua karakter                          | minlength mencegah submit                      |        |
-5   | GET            | Ubah method ke GET lalu submit data latihan    | Parameter terlihat di URL                      |        |
-6   | POST           | Kembalikan ke POST dan submit                  | Query data tidak tampil pada URL               |        |
-7   | Radio          | Pilih Mahasiswa/Umum                           | Nilai muncul di ringkasan                      |        |
-8   | Checkbox       | Pilih dua minat                                | Dua nilai muncul setelah digabung              |        |
-9   | Textarea       | Isi catatan singkat                            | Isi ditampilkan kembali dengan aman            |        |
-10  | Hidden         | Submit form                                    | Sumber "week-05" diterima                      |        |
-11  | Mobile         | Uji sekitar 360 px                             | Form satu kolom, tidak overflow                |        |
-12  | Navigasi       | Beranda -> Katalog -> Daftar                   | Semua link menuju tujuan benar                 |        |
+No. | Test           | Langkah                                        | Hasil yang Diharapkan                          | Status     | Catatan
+1   | Load form      | Buka registration.php                          | Form tampil tanpa error                        | Lulus      |Form Berhasil Di Muat Tanpa Kendala Pada Browser
+2   | Required       | Kirim form kosong                              | Browser menahan field wajib                    | Lulus      |Validasi Berfungsi Dengan Baik Menahan Pengiriman Data Saat Field Kosond
+3   | Email          | Isi email "abc"                                | Browser meminta format email                   | Lulus      |Sistem Mendeteksi Format Input Email Yang Tidak Valid
+4   | Nama pendek    | Isi nama dua karakter                          | minlength mencegah submit                      | Lulus      |Atribut Pembatasan Karakter Minimum Berhasil Mencegah Submit Data Pendek
+5   | GET            | Ubah method ke GET lalu submit data latihan    | Parameter terlihat di URL                      | Lulus      |Data Terkirim Dan Parameter Terekspos Dengan jelas pada Bilah Alamat URL
+6   | POST           | Kembalikan ke POST dan submit                  | Query data tidak tampil pada URL               | Lulus      |Data berhasil Dikirim secara aman tanpa menampilkan parameter URL
+7   | Radio          | Pilih Mahasiswa/Umum                           | Nilai muncul di ringkasan                      | Lulus      |Pilih Tombol Radio Berhasil Di proses Dan Ditampilkan pada halaman Ringkasan
+8   | Checkbox       | Pilih dua minat                                | Dua nilai muncul setelah digabung              | Lulus      |Multi Pilihan Minat berhasil ditangkap dan di gabungkan dengan benar
+9   | Textarea       | Isi catatan singkat                            | Isi ditampilkan kembali dengan aman            | Lulus      |input text area berhasil di render ulang dengan aman pada sistem
+10  | Hidden         | Submit form                                    | Sumber "week-05" diterima                      | Lulus      |nilai input tersembunyi berhasil di teruskan ke server sesuai parameter
+11  | Mobile         | Uji sekitar 360 px                             | Form satu kolom, tidak overflow                | Lulus      |layout responsif menyesuaikan layar kecil dengan baik tanpa ada elemen yang terpotong
+12  | Navigasi       | Beranda -> Katalog -> Daftar                   | Semua link menuju tujuan benar                 | Lulus      |Seluruh tautan navigasi mengarah ke halaman tujuan secara akurat
 
 Ringkasan:
-- Jumlah Lulus: __
-- Jumlah Perlu Perbaikan: __
-- Catatan umum: __________________________
+- Jumlah Lulus: 12
+- Jumlah Perlu Perbaikan: 0
+- Catatan umum: Seluruh skenario pengujian fungsionalitas formulir dan responsivitas halaman Kursusku-prototype Berjalan dengan lancar Tanp Kendala

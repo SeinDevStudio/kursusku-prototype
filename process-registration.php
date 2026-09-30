@@ -1,13 +1,17 @@
 <?php
-$name = trim($_POST['name'] ?? '');
-$email = trim($_POST['email'] ?? '');
-$phone = trim($_POST['phone'] ?? '');
-$studyProgram = trim($_POST['study_program'] ?? '');
-$course = $_POST['course'] ?? '';
-$participantType = $_POST['participant_type'] ?? '';
-$interests = $_POST['interests'] ?? [];
-$note = trim($_POST['note'] ?? '');
-$source = $_POST['source'] ?? '';
+// Deteksi apakah request menggunakan GET atau POST secara otomatis
+$method = $_SERVER['REQUEST_METHOD'];
+$dataSource = ($method === 'GET') ? $_GET : $_POST;
+
+$name = trim($dataSource['name'] ?? '');
+$email = trim($dataSource['email'] ?? '');
+$phone = trim($dataSource['phone'] ?? '');
+$studyProgram = trim($dataSource['study_program'] ?? '');
+$course = $dataSource['course'] ?? '';
+$participantType = $dataSource['participant_type'] ?? '';
+$interests = $dataSource['interests'] ?? [];
+$note = trim($dataSource['note'] ?? '');
+$source = $dataSource['source'] ?? '';
 
 $interestText = implode(', ', $interests);
 
@@ -15,6 +19,9 @@ function e($value): string
 {
     return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
 }
+
+// Menentukan warna badge berdasarkan metode
+$badgeColor = ($method === 'GET') ? '#06b6d4' : '#6366f1';
 ?>
 <!doctype html>
 <html lang="id">
@@ -27,6 +34,7 @@ function e($value): string
 <body>
 <main class="container result-page">
   <section class="alert-success">
+    <span class="method-badge" style="background-color: <?= $badgeColor ?>;">Metode HTTP: <?= e($method) ?></span>
     <h1>Pendaftaran Diterima untuk Diproses</h1>
     <p>Periksa kembali data latihan berikut.</p>
   </section>
@@ -41,6 +49,7 @@ function e($value): string
       <dt>Minat</dt><dd><?= e($interestText) ?></dd>
       <dt>Catatan</dt><dd><?= e($note) ?></dd>
       <dt>Sumber</dt><dd><?= e($source) ?></dd>
+      <dt>Metode Digunakan</dt><dd><strong><?= e($method) ?></strong></dd>
     </dl>
     <a class="btn-link" href="registration.php">Kembali ke Form</a>
   </section>
