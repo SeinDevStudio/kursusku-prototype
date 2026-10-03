@@ -63,24 +63,34 @@ $courses = [
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?= htmlspecialchars($siteName) ?></title>
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/polish.css">
 </head>
 
-<body> 
-  <header>
-    <nav aria-label="Navigasi utama"> <a href="index.php"> <strong><?= htmlspecialchars($siteName) ?></strong> </a> <a href="#keunggulan">Keunggulan</a> <a href="#katalog">Katalog</a> <a href="#alur">Cara Daftar</a> <a href="registration.php">Daftar Kursus</a> <a href="#kontak">Kontak</a> </nav>
+<body class="home-page">
+  <header class="site-header">
+    <nav class="site-nav container" aria-label="Navigasi utama">
+      <a class="brand" href="index.php"><?= htmlspecialchars($siteName) ?></a>
+      <a href="#keunggulan">Keunggulan</a>
+      <a href="#katalog">Katalog</a>
+      <a href="#alur">Cara Daftar</a>
+      <a href="registration.php">Daftar Kursus</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
   </header>
   <main>
     <section id="hero">
+      <p class="eyebrow">Platform Belajar Teknologi</p>
       <h1><?= htmlspecialchars($tagline) ?></h1>
-      <p> Temukan kursus teknologi yang relevan untuk meningkatkan keterampilan Anda. </p> <div class="hero-buttons">
-    <a href="#katalog" class="btn-primary">
-        Lihat Kursus
-    </a>
-
-    <a href="fee-calculator.php" class="calculator-link">
-        Lihat Estimasi Biaya
-    </a>
-</div>
+      <p>Temukan kursus teknologi yang relevan untuk meningkatkan keterampilan Anda.</p>
+      <div class="hero-buttons">
+        <a href="#katalog" class="btn-primary">Lihat Kursus</a>
+        <a href="fee-calculator.php" class="calculator-link">Lihat Estimasi Biaya <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="hero-highlights" aria-label="Keunggulan singkat KursusKu">
+        <div><strong>6</strong><span>Kursus pilihan</span></div>
+        <div><strong>3</strong><span>Metode belajar</span></div>
+        <div><strong>100%</strong><span>Fokus praktik</span></div>
+      </div>
     </section>
     <section id="keunggulan">
       <h2>Mengapa Memilih KursusKu?</h2>

@@ -575,6 +575,79 @@ section h2,
   margin-bottom: 1.25rem;
 }
 
+.course-details {
+  margin: 0 0 1.25rem;
+  padding: 1.25rem;
+  background: rgba(6, 182, 212, 0.06);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  border-radius: 14px;
+}
+
+.course-details-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.course-details .eyebrow {
+  margin-bottom: 0.2rem;
+}
+
+.course-details h2,
+.course-details h3 {
+  color: var(--text-inverse);
+}
+
+.course-details h2 {
+  font-size: 1.25rem;
+}
+
+.course-details h3 {
+  margin-bottom: 0.65rem;
+  font-size: 0.95rem;
+}
+
+.course-package-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 10px;
+  background: rgba(11, 15, 25, 0.45);
+  color: var(--text-muted);
+}
+
+.course-package-total strong {
+  color: var(--accent);
+}
+
+.facility-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem 1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.facility-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  color: var(--text-main);
+  font-size: 0.9rem;
+}
+
+.facility-list li::before {
+  content: "✓";
+  color: var(--success-text);
+  font-weight: 700;
+}
+
 label,
 legend {
   display: block;
@@ -634,6 +707,42 @@ select option {
   accent-color: var(--accent);
   width: 16px;
   height: 16px;
+}
+
+.option-fieldset {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  background: rgba(11, 15, 25, 0.3);
+}
+
+.option-fieldset legend {
+  padding: 0 0.4rem;
+  margin-bottom: 0;
+}
+
+.option-fieldset .choice {
+  min-height: 3rem;
+  margin: 0;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background: rgba(11, 15, 25, 0.55);
+  transition: var(--transition-smooth);
+}
+
+.option-fieldset .choice:hover {
+  border-color: var(--border-glow);
+  background: rgba(99, 102, 241, 0.08);
+}
+
+.option-fieldset .choice:has(input:checked) {
+  border-color: var(--accent);
+  background: rgba(6, 182, 212, 0.12);
+  box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.12);
 }
 
 .help {
@@ -764,6 +873,12 @@ footer {
   .summary-list {
     grid-template-columns: 1fr;
   }
+  .facility-list {
+    grid-template-columns: 1fr;
+  }
+  .option-fieldset {
+    grid-template-columns: 1fr;
+  }
 }
 /* Styling tambahan untuk tombol aksi POST & GET */
 .button-group {
@@ -795,6 +910,173 @@ footer {
 
 .registration-form .btn-primary {
   flex: 1;
+}
+
+/* Halaman history dummy dan loop lab */
+.history-card {
+  max-width: 1000px;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+.history-table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+}
+
+.history-table th,
+.history-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.history-table th {
+  color: var(--text-inverse);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.history-table td {
+  color: var(--text-main);
+}
+
+.history-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.history-status {
+  display: inline-block;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid rgba(6, 182, 212, 0.35);
+  border-radius: 999px;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.history-status-confirmed {
+  border-color: rgba(74, 222, 128, 0.35);
+  color: var(--success-text);
+}
+
+.matrix-card {
+  max-width: 1080px;
+}
+
+.matrix-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+}
+
+.matrix-table {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+}
+
+.matrix-table th,
+.matrix-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-main);
+  font-size: 0.9rem;
+}
+
+.matrix-table th {
+  background: rgba(6, 182, 212, 0.08);
+  color: var(--accent);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.matrix-table tbody tr {
+  transition: background 0.2s ease;
+}
+
+.matrix-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.matrix-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.matrix-table th:first-child,
+.matrix-table td:first-child {
+  width: 4rem;
+  text-align: center;
+}
+
+.matrix-table th:last-child,
+.matrix-table td:last-child {
+  width: 6.5rem;
+  text-align: center;
+}
+
+.matrix-status {
+  display: inline-block;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  border-radius: 999px;
+  background: var(--success-bg);
+  color: var(--success-text);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.course-lab {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  max-width: 1080px;
+  padding: 0 0 2.5rem;
+}
+
+.lab-course-card {
+  padding: 1.4rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+}
+
+.lab-course-card h2 {
+  margin-bottom: 1.25rem;
+  color: var(--text-inverse);
+  font-size: 1.2rem;
+}
+
+.lab-course-card h3 {
+  margin-bottom: 0.65rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.page-action {
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .course-lab {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .button-group {
+    flex-direction: column;
+  }
+
+  .course-lab {
+    grid-template-columns: 1fr;
+  }
 }
 /* Styling untuk badge metode HTTP di halaman hasil */
 .method-badge {

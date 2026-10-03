@@ -1,0 +1,15 @@
+Pertemuan 6 - Test Matrix KursusKu
+01 Mahasiswa + Web Dasar + 1 paket => Rp 240.000 : PASS
+02 Guru + PHP Dasar + 1 paket => Rp 340.000 : PASS
+03 Umum + Laravel Fundamental + 1 paket => Rp 315.000 : PASS
+04 Mahasiswa + Web Dasar + 2 paket => Rp 480.000 : PASS
+05 Nama kosong => browser menahan pengiriman karena field wajib : PASS
+06 Email tidak valid => browser meminta format email yang valid : PASS
+07 Tidak memilih minat => “Belum ada minat tambahan.” tanpa warning : PASS
+08 Pilih 3 minat => Frontend, Database, dan Backend tampil di ringkasan : PASS
+09 Metode offline => Tatap Muka tampil di ringkasan : PASS
+10 Metode hybrid => Hybrid tampil di ringkasan : PASS
+11 PHP Dasar dipilih => pilihan jumlah paket tersedia dari 1 sampai 3 : PASS
+12 Fasilitas kursus => Modul digital, Sertifikat penyelesaian, dan Forum diskusi kelas dirender otomatis dengan foreach : PASS
+
+Catatan: Pengujian menyesuaikan form pendaftaran, perhitungan biaya, ringkasan, dan data kursus pada proyek KursusKu.

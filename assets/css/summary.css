@@ -1,0 +1,177 @@
+/* Ringkasan menggunakan warna dan elemen yang sama dengan form pendaftaran. */
+.registration-summary-card {
+  max-width: 760px;
+}
+
+.summary-overline {
+  margin-bottom: 1.25rem;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.summary-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.summary-detail {
+  min-height: 4.6rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background: rgba(11, 15, 25, 0.6);
+}
+
+.summary-detail dt {
+  margin-bottom: 0.25rem;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.summary-detail dd {
+  margin: 0;
+  color: var(--text-inverse);
+  font-size: 0.94rem;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.summary-section {
+  margin-top: 1.65rem;
+  text-align: left;
+}
+
+.summary-section h2 {
+  margin-bottom: 0.8rem;
+  color: var(--text-inverse);
+  font-size: 1.15rem;
+  text-align: left;
+}
+
+.cost-breakdown {
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+}
+
+.cost-breakdown div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-main);
+  font-size: 0.9rem;
+}
+
+.cost-breakdown dt,
+.cost-breakdown dd {
+  margin: 0;
+}
+
+.cost-breakdown dd {
+  text-align: right;
+}
+
+.cost-breakdown .cost-total {
+  border-bottom: 0;
+  background: var(--success-bg);
+  color: var(--success-text);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.interest-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.interest-tags li {
+  padding: 0.38rem 0.7rem;
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  border-radius: 999px;
+  background: rgba(6, 182, 212, 0.1);
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.summary-facilities {
+  display: grid;
+  gap: 0.4rem;
+  padding-left: 1.3rem;
+  margin: 0;
+  color: var(--text-main);
+  font-size: 0.9rem;
+}
+
+.summary-facilities li::marker {
+  color: var(--accent);
+}
+
+.summary-empty,
+.summary-note p {
+  margin: 0;
+  color: var(--text-main);
+  font-size: 0.9rem;
+}
+
+.summary-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.summary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.7rem;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--accent);
+  border-radius: 0.65rem;
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.summary-button:hover {
+  transform: translateY(-2px);
+  background: rgba(6, 182, 212, 0.1);
+}
+
+.summary-button-primary {
+  border-color: var(--primary);
+  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+  color: var(--text-inverse);
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.35);
+}
+
+.summary-button-primary:hover {
+  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+  box-shadow: 0 9px 24px rgba(99, 102, 241, 0.45);
+}
+
+@media (max-width: 640px) {
+  .summary-details {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-actions {
+    flex-direction: column;
+  }
+}
