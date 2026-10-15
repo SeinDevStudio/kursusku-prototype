@@ -13,7 +13,7 @@ Debug        | Boleh membantu proses belajar                        | Jangan men
 Secret       | Disimpan lokal, tidak dibagikan                      | Disimpan aman sebagai konfigurasi server          |Informasi rahasia seperti kunci enkripsi atau password database yang harus diamankan. 
 Document root| Folder proyek di Laragon                             | Folder web yang ditentukan provider hosting       |Folder utama yang diakses pertama kali oleh web server saat membuka aplikasi.
 
-Refleksi singkat (jawab dengan kata-kata sendiri):
+Refleksi singkat :
 1. Apa risiko jika prototype ini langsung diunggah ke hosting publik tanpa HTTPS?
    Data yang dikirimkan pengguna (seperti form login, data diri, atau kata sandi) tidak akan terenkripsi 
    sehingga sangat rentan disadap oleh pihak lain di jaringan yang sama (man-in-the-middle attack).

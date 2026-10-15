@@ -1,7 +1,12 @@
 <?php
 
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header('Location: registration.php');
+    exit;
+}
+
 $method = $_SERVER['REQUEST_METHOD'];
-$dataSource = $method === 'GET' ? $_GET : $_POST;
+$dataSource = $_POST;
 $registrationCourses = require __DIR__ . '/course-data.php';
 
 $name = trim($dataSource['name'] ?? '');
