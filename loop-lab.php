@@ -18,7 +18,7 @@ $registrationCourses = require __DIR__ . '/course-data.php';
     <a class="brand" href="index.php">KursusKu</a>
     <a href="index.php">Beranda</a>
     <a href="registration.php">Daftar</a>
-    <a href="history-dummy.php">History</a>
+    <a href="history.php">History</a>
     <a class="is-active" href="loop-lab.php">Loop Lab</a>
   </nav>
 </header>

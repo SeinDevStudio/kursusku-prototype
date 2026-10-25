@@ -131,7 +131,7 @@ $registrationCourses = require __DIR__ . '/course-data.php';
 
       <div class="button-group">
         <button class="btn-primary" type="submit">Proses Pendaftaran</button>
-        <a class="btn-secondary" href="history-dummy.php">History Dummy</a>
+        <a class="btn-secondary" href="history.php">History</a>
         <a class="btn-secondary" href="loop-lab.php">Loop Lab</a>
       </div>
     </form>

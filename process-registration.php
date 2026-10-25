@@ -170,7 +170,7 @@ function rupiah(int $value): string
 
     <div class="summary-actions">
       <a class="summary-button summary-button-primary" href="registration.php">Daftar Lagi</a>
-      <a class="summary-button" href="history-dummy.php">Lihat History Dummy</a>
+      <a class="summary-button" href="history.php">Lihat History</a>
       <a class="summary-button" href="index.php">Beranda</a>
     </div>
   </section>
